@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#100812">
+<title>A Little Something for You ❤️</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap');
+:root{--bg:#100812;--pink:#ff8eae;--rose:#f45c89;--cream:#fff0e9;--muted:#c9aebc;--gold:#ffd9a0}
+*{box-sizing:border-box}
+html{min-height:100%;background:var(--bg)}
+body{margin:0;min-height:100svh;color:var(--cream);font-family:'DM Sans',sans-serif;background:radial-gradient(ellipse at 50% 15%,#3a1832 0%,#1b0d20 42%,#0d0812 100%);overflow-x:hidden}
+button{font:inherit;-webkit-tap-highlight-color:transparent}
+#sky,.grain{position:fixed;inset:0;pointer-events:none}
+#sky{overflow:hidden;z-index:0}
+.grain{z-index:1;opacity:.12;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.2'/%3E%3C/svg%3E")}
+.star{position:absolute;width:2px;height:2px;border-radius:50%;background:#fff2dc;box-shadow:0 0 8px 2px #ffd9e9;animation:twinkle var(--dur,3s) ease-in-out infinite alternate}
+.star.secret{width:8px;height:8px;cursor:pointer;pointer-events:auto;background:transparent;box-shadow:none}
+.star.secret:before{content:'✦';color:#ffe3a9;font-size:17px;text-shadow:0 0 12px #ffb8d1}
+.float-heart{position:absolute;bottom:-35px;color:#ff83ac;opacity:0;animation:rise var(--dur,12s) linear infinite;filter:drop-shadow(0 0 8px #ff4f91)}
+@keyframes twinkle{to{opacity:.25;transform:scale(.65)}}
+@keyframes rise{0%{transform:translateY(0) rotate(0);opacity:0}12%{opacity:.55}85%{opacity:.3}100%{transform:translateY(-115vh) rotate(25deg);opacity:0}}
+main{position:relative;z-index:2;min-height:100svh;display:grid;place-items:center;padding:28px 18px 86px}
+.progress-wrap{position:fixed;z-index:5;top:0;left:0;width:100%;padding: max(13px,env(safe-area-inset-top)) 20px 12px;background:linear-gradient(#100812cc,transparent)}
+.progress-meta{max-width:520px;margin:auto auto 8px;display:flex;justify-content:space-between;color:#caaebb;font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+.progress-track{height:3px;max-width:520px;margin:auto;background:#ffffff18;border-radius:10px;overflow:hidden}
+.progress-fill{height:100%;width:0;background:linear-gradient(90deg,#f46a9a,#ffd5b4);border-radius:10px;transition:width .65s ease}
+.scene{width:min(100%,560px);text-align:center;display:none;animation:sceneIn .8s cubic-bezier(.2,.8,.2,1) both}
+.scene.active{display:block}
+@keyframes sceneIn{from{opacity:0;transform:translateY(18px) scale(.985);filter:blur(5px)}to{opacity:1;transform:none;filter:blur(0)}}
+.eyebrow{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#e8a9c0;margin-bottom:22px}
+h1,h2,.message{font-family:'Playfair Display',serif;font-weight:500}
+h1{font-size:clamp(2.45rem,9vw,4.5rem);line-height:1.12;margin:0 auto 20px;max-width:650px}
+h2{font-size:clamp(2rem,7vw,3.2rem);line-height:1.2;margin:0 0 20px}
+.message{font-size:clamp(1.45rem,5.5vw,2.25rem);line-height:1.55;min-height:115px;margin:0 auto 28px;max-width:540px}
+.sub{color:var(--muted);line-height:1.8;font-size:14px;max-width:440px;margin:0 auto 28px}
+.accent{color:#ffabc5;font-style:italic}
+.btn{border:1px solid #ff9dbd70;color:#fff7f4;background:linear-gradient(135deg,#e95788,#a92d65);padding:15px 25px;border-radius:999px;min-height:52px;min-width:155px;box-shadow:0 8px 30px #e9578838,inset 0 1px #ffffff40;cursor:pointer;transition:transform .2s,box-shadow .2s,filter .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 35px #e9578855}
+.btn:active{transform:scale(.97)}
+.btn.secondary{background:#ffffff0c;border-color:#ffffff35;box-shadow:none;color:#f9dce7}
+.btn-row{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.small-note{font-size:12px;color:#b99aaa;margin-top:22px}
+.glow-orb{width:160px;height:160px;margin:0 auto 30px;border-radius:50%;background:radial-gradient(circle at 40% 35%,#ffb6cc,#e94e87 35%,#7c1e56 68%,transparent 70%);filter:drop-shadow(0 0 25px #f44d91aa);animation:breathe 3s ease-in-out infinite}
+@keyframes breathe{50%{transform:scale(1.07);filter:drop-shadow(0 0 42px #f44d91)}}
+.heart-button{width:190px;height:180px;margin:4px auto 24px;border:0;background:transparent;cursor:pointer;position:relative;display:grid;place-items:center;touch-action:manipulation}
+.heart-shape{font-size:112px;line-height:1;color:#ff5f91;text-shadow:0 0 12px #ff4c8a,0 0 38px #ff4c8a99;animation:heartBeat 1.5s ease-in-out infinite;transition:transform .2s}
+.heart-button:active .heart-shape{transform:scale(.82)}
+@keyframes heartBeat{0%,100%{transform:scale(1)}12%{transform:scale(1.12)}24%{transform:scale(1)}36%{transform:scale(1.08)}}
+.heart-hint{color:#d9b7c7;font-size:13px}
+.heart-count{font-size:11px;letter-spacing:.18em;color:#e99ab7;margin-top:12px}
+.heart-message{min-height:62px;margin:20px auto 8px;font-family:'Playfair Display',serif;font-size:1.35rem;color:#ffe2eb}
+.envelope-wrap{height:220px;display:grid;place-items:center;margin:10px 0 20px;perspective:800px}
+.envelope{position:relative;width:min(290px,78vw);height:178px;background:#b64b71;border-radius:5px;box-shadow:0 15px 50px #0007;cursor:pointer;transform-style:preserve-3d}
+.envelope:before,.envelope:after{content:'';position:absolute;inset:0}
+.envelope:before{background:linear-gradient(145deg,#f3a3b9,#bd4c78);clip-path:polygon(0 0,50% 58%,100% 0);transform-origin:top;transition:transform .8s;z-index:3}
+.envelope:after{background:linear-gradient(35deg,#8e2d59,#d56a8e);clip-path:polygon(0 100%,50% 43%,100% 100%);z-index:2}
+.envelope .seal{position:absolute;z-index:4;top:48%;left:50%;transform:translate(-50%,-50%);font-size:27px;filter:drop-shadow(0 2px 4px #70203d)}
+.envelope.open:before{transform:rotateX(180deg);z-index:1}
+.letter{display:none;text-align:left;background:#fff0e8;color:#5a3042;border-radius:12px;padding:24px 23px;margin:16px auto 24px;max-width:460px;box-shadow:0 20px 65px #0007;line-height:1.85;animation:sceneIn .7s both}
+.letter.show{display:block}
+.letter p{margin:0 0 13px}
+.letter .sign{font-family:'Playfair Display',serif;font-style:italic;font-size:1.35rem;color:#a53665}
+.question{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,5vw,2.15rem);line-height:1.55;margin:10px auto 28px}
+.yes-btn{background:linear-gradient(135deg,#ff6c9b,#bd2d70);font-weight:700;letter-spacing:.08em}
+.time-btn{background:#ffffff0d}
+.celebrate-title{color:#ffd6e4;text-shadow:0 0 25px #ff4e91}
+.confetti{position:fixed;z-index:10;top:-20px;width:8px;height:13px;pointer-events:none;animation:confettiFall var(--fall,3s) linear forwards}
+@keyframes confettiFall{to{transform:translate3d(var(--x),110vh,0) rotate(800deg);opacity:0}}
+.burst{position:fixed;z-index:9;pointer-events:none;left:50%;top:50%;font-size:22px;animation:burst 1.2s ease-out forwards}
+@keyframes burst{to{transform:translate(var(--x),var(--y)) scale(.2) rotate(80deg);opacity:0}}
+.secret-toast{position:fixed;z-index:20;left:50%;bottom:25px;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#32182d;border:1px solid #ff9fbd70;color:#ffe5ed;border-radius:30px;padding:12px 18px;font-size:13px;box-shadow:0 8px 30px #0008;transition:.35s;max-width:90vw;text-align:center}
+.secret-toast.show{opacity:1;transform:translate(-50%,0)}
+.restart{position:fixed;z-index:6;bottom:max(14px,env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);border:0;background:#ffffff0b;color:#c9aebc;border:1px solid #ffffff20;border-radius:30px;padding:9px 15px;font-size:11px;letter-spacing:.08em;cursor:pointer}
+.hidden{display:none!important}
+@media(min-width:700px){main{padding-top:65px}.progress-wrap{padding-top:18px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<div id="sky" aria-hidden="true"></div><div class="grain" aria-hidden="true"></div>
+<div class="progress-wrap"><div class="progress-meta"><span>OUR LITTLE STORY</span><span id="progressText">A new beginning</span></div><div class="progress-track"><div class="progress-fill" id="progressFill"></div></div></div>
+<main>
+<section class="scene active" data-step="0" id="welcome">
+  <div class="eyebrow">A little secret, just for you</div><div class="glow-orb"></div>
+  <h1>Hey, <span class="accent">[HER NAME]</span>…</h1>
+  <p class="sub">Can I have a little moment of your time?</p>
+  <button class="btn" data-next>Of course ❤️</button>
+  <div class="small-note">Made with a little courage and a lot of heart.</div>
+</section>
+<section class="scene" data-step="1">
+  <div class="eyebrow">Chapter one · A little confession</div>
+  <p class="message type" data-text="There’s something I’ve wanted to tell you."></p>
+  <button class="btn" data-next>Tell me more…</button>
+</section>
+<section class="scene" data-step="2">
+  <div class="eyebrow">Chapter two · The little things</div>
+  <p class="message type" data-text="Every time we talk, my day somehow gets a little better."></p>
+  <button class="btn" data-next>And then?</button>
+</section>
+<section class="scene" data-step="3">
+  <div class="eyebrow">Chapter three · Someone special</div>
+  <p class="message type" data-text="I don’t know how to explain it, but you’ve become someone special to me."></p>
+  <button class="btn" data-next>What’s next?</button>
+</section>
+<section class="scene" data-step="4">
+  <div class="eyebrow">Chapter four · The truth</div>
+  <p class="message type" data-text="I think I’m starting to fall for you."></p>
+  <p class="sub">And there’s one little thing I want you to discover for yourself…</p>
+  <button class="btn" data-next>I'm listening ❤️</button>
+</section>
+<section class="scene" data-step="5" id="heartScene">
+  <div class="eyebrow">A small piece of my heart</div>
+  <h2>Something from me to you</h2>
+  <p class="heart-hint">Tap the heart to discover something…</p>
+  <button class="heart-button" id="heartButton" aria-label="Tap the glowing heart"><span class="heart-shape">♥</span></button>
+  <div class="heart-message" id="heartMessage" aria-live="polite">A little message is waiting inside.</div>
+  <div class="heart-count" id="heartCount">0 / 5 DISCOVERED</div>
+  <button class="btn hidden" id="heartContinue">Unlock the next chapter ✨</button>
+</section>
+<section class="scene" data-step="6" id="letterScene">
+  <div class="eyebrow">A letter I wrote for you</div>
+  <h2>Sealed with affection</h2>
+  <p class="sub">Some feelings are easier to write than to say out loud.</p>
+  <div class="envelope-wrap"><div class="envelope" id="envelope" role="button" tabindex="0" aria-label="Open the envelope"><span class="seal">♥</span></div></div>
+  <button class="btn" id="openLetter">Open My Letter 💌</button>
+  <article class="letter" id="letter">
+    <p>Dear <strong>[HER NAME]</strong>,</p>
+    <p>I’m not sure when it happened, but somewhere between our conversations and the little moments, you became someone I look forward to hearing from.</p>
+    <p>I don’t have a perfect speech or grand promises. I just want you to know that I appreciate you, your smile, and the happiness you bring into ordinary days.</p>
+    <p>If you feel the same, I’d love the chance to make more memories together. And whatever your answer is, I’ll respect it.</p>
+    <p class="sign">With love,<br>[YOUR NAME] ❤️</p>
+  </article>
+  <button class="btn hidden" id="letterContinue">There’s one more thing…</button>
+</section>
+<section class="scene" data-step="7" id="questionScene">
+  <div class="eyebrow">The question · From my heart</div>
+  <div class="glow-orb" style="width:105px;height:105px"></div>
+  <h2><span class="accent">[HER NAME]</span>, I’ve been wanting to ask you something…</h2>
+  <p class="question">Would you give me a chance to make you smile, care for you, and create beautiful memories together?</p>
+  <div class="btn-row"><button class="btn yes-btn" id="yesButton">YES ❤️</button><button class="btn time-btn" id="timeButton">I NEED MORE TIME 💗</button></div>
+  <div class="small-note">No pressure. Your feelings matter.</div>
+</section>
+<section class="scene" data-step="8" id="yesScene">
+  <div class="eyebrow">A moment I'll keep close</div>
+  <div class="glow-orb"></div>
+  <h1 class="celebrate-title">YOU JUST MADE MY HEART SO HAPPY! ❤️</h1>
+  <p class="message" style="font-size:1.5rem;min-height:0">Maybe this is the beginning of something beautiful.</p>
+  <p class="sub">With love,<br><span class="accent">[YOUR NAME]</span></p>
+  <button class="btn secondary" id="restartYes">Experience it again ↻</button>
+</section>
+<section class="scene" data-step="9" id="timeScene">
+  <div class="eyebrow">Thank you for being honest</div>
+  <div class="glow-orb" style="width:120px;height:120px"></div>
+  <h2>That’s okay. 💗</h2>
+  <p class="message" style="font-size:1.55rem;min-height:0">I don’t want to rush your feelings. Take all the time you need. Your happiness and comfort matter to me.</p>
+  <p class="sub">Thank you for hearing me out. ❤️</p>
+  <button class="btn secondary" id="restartTime">Start our little story again ↻</button>
+</section>
+</main>
+<button class="restart" id="restartButton">↻ RESTART EXPERIENCE</button>
+<div class="secret-toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+(() => {
+  const $ = (s, root=document) => root.querySelector(s);
+  const $$ = (s, root=document) => [...root.querySelectorAll(s)];
+  const scenes = $$('.scene');
+  const fill = $('#progressFill'), progressText = $('#progressText');
+  const labels = ['A new beginning','A little confession','The little things','Someone special','The truth','A piece of my heart','A letter for you','The big question','A beautiful beginning','At your own pace'];
+  let current = 0, busy = false, heartClicks = 0, floatingClicks = 0, toastTimer;
+  const heartMessages = [
+    'You make ordinary moments feel a little magical.',
+    'Your smile has a way of staying in my thoughts.',
+    'Talking with you is one of my favourite little things.',
+    'I hope you always remember how special you are.',
+    'If I could choose one more moment, I’d choose another one with you.'
+  ];
+  function updateProgress(step){
+    fill.style.width = (step/(scenes.length-1)*100)+'%';
+    progressText.textContent = labels[step] || 'Our little story';
+  }
+  function typeMessage(scene){
+    const el = $('.type',scene); if(!el) return;
+    const text = el.dataset.text; el.textContent = '';
+    let i=0; const speed=24;
+    function tick(){ if(!scene.classList.contains('active')) return; el.textContent=text.slice(0,i++); if(i<=text.length) setTimeout(tick,speed); }
+    tick();
+  }
+  function show(step){
+    if(busy || step<0 || step>=scenes.length) return;
+    busy=true;
+    scenes[current].classList.remove('active');
+    current=step;
+    scenes[current].classList.add('active');
+    updateProgress(current);
+    typeMessage(scenes[current]);
+    window.scrollTo({top:0,behavior:'smooth'});
+    setTimeout(()=>busy=false,650);
+  }
+  $$('[data-next]').forEach(b=>b.addEventListener('click',()=>show(current+1)));
+  function toast(message){
+    const el=$('#toast'); el.textContent=message; el.classList.add('show');
+    clearTimeout(toastTimer); toastTimer=setTimeout(()=>el.classList.remove('show'),3000);
+  }
+  function burstHearts(amount=18){
+    const symbols=['♥','♡','✦','❤'];
+    for(let i=0;i<amount;i++){
+      const e=document.createElement('span'); e.className='burst'; e.textContent=symbols[i%symbols.length];
+      e.style.setProperty('--x',(Math.random()*560-280)+'px'); e.style.setProperty('--y',(Math.random()*560-280)+'px');
+      e.style.color=i%2?'#ffb3ca':'#ffd9a0'; document.body.append(e); setTimeout(()=>e.remove(),1300);
+    }
+  }
+  $('#heartButton').addEventListener('click',()=>{
+    if(heartClicks>=5) return;
+    $('#heartMessage').textContent=heartMessages[heartClicks];
+    heartClicks++; $('#heartCount').textContent=heartClicks+' / 5 DISCOVERED';
+    burstHearts(7);
+    if(heartClicks===5){$('#heartContinue').classList.remove('hidden');toast('You found all five little messages. 💗');}
+  });
+  $('#heartContinue').addEventListener('click',()=>show(6));
+  function openEnvelope(){
+    if($('#letter').classList.contains('show')) return;
+    $('#envelope').classList.add('open');
+    $('#letter').classList.add('show');
+    $('#openLetter').classList.add('hidden');
+    $('#letterContinue').classList.remove('hidden');
+  }
+  $('#openLetter').addEventListener('click',openEnvelope);
+  $('#envelope').addEventListener('click',openEnvelope);
+  $('#envelope').addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openEnvelope();}});
+  $('#letterContinue').addEventListener('click',()=>show(7));
+  function confetti(){
+    for(let i=0;i<100;i++){
+      const c=document.createElement('i'); c.className='confetti';
+      c.style.left=Math.random()*100+'vw'; c.style.setProperty('--x',(Math.random()*240-120)+'px');
+      c.style.setProperty('--fall',(2.2+Math.random()*2.5)+'s');
+      c.style.background=['#ff8eb2','#ffd9a0','#fff0e9','#d99bff'][i%4];
+      c.style.animationDelay=Math.random()*.8+'s'; document.body.append(c); setTimeout(()=>c.remove(),5500);
+    }
+  }
+  $('#yesButton').addEventListener('click',()=>{show(8);setTimeout(()=>{burstHearts(55);confetti();},250);});
+  $('#timeButton').addEventListener('click',()=>show(9));
+  function restart(){
+    heartClicks=0; floatingClicks=0;
+    $('#heartMessage').textContent='A little message is waiting inside.';
+    $('#heartCount').textContent='0 / 5 DISCOVERED'; $('#heartContinue').classList.add('hidden');
+    $('#envelope').classList.remove('open'); $('#letter').classList.remove('show');
+    $('#openLetter').classList.remove('hidden'); $('#letterContinue').classList.add('hidden');
+    $$('.confetti,.burst').forEach(e=>e.remove()); show(0);
+  }
+  $('#restartButton').addEventListener('click',restart);
+  $('#restartYes').addEventListener('click',restart);
+  $('#restartTime').addEventListener('click',restart);
+
+  // A few stars are interactive; one is the hidden secret star.
+  const sky=$('#sky');
+  for(let i=0;i<65;i++){
+    const s=document.createElement('span'); s.className='star';
+    s.style.left=Math.random()*100+'%'; s.style.top=Math.random()*100+'%';
+    s.style.setProperty('--dur',(1.5+Math.random()*4)+'s'); s.style.animationDelay=Math.random()*4+'s';
+    sky.append(s);
+  }
+  const secretStar=document.createElement('span'); secretStar.className='star secret';
+  secretStar.style.left='13%'; secretStar.style.top='24%'; secretStar.setAttribute('role','button'); secretStar.setAttribute('aria-label','A hidden little star');
+  secretStar.addEventListener('click',()=>toast('A little secret: if I could bottle one feeling, it would be the happiness I feel when I hear from you. ✨'));
+  sky.append(secretStar);
+  for(let i=0;i<9;i++){
+    const h=document.createElement('span'); h.className='float-heart'; h.textContent='♥';
+    h.style.left=(5+Math.random()*90)+'%'; h.style.setProperty('--dur',(10+Math.random()*10)+'s');
+    h.style.animationDelay=(Math.random()*12)+'s'; h.style.fontSize=(10+Math.random()*16)+'px';
+    h.addEventListener('click',()=>{floatingClicks++; if(floatingClicks>=5){floatingClicks=0;toast('Surprise unlocked: somewhere in this universe, someone is smiling because of you. 💞');burstHearts(16);}else toast('A tiny heart for you. '+floatingClicks+'/5');});
+    sky.append(h);
+  }
+  // The hidden extra button appears after a short pause on the final question.
+  let extraShown=false;
+  $('#questionScene').addEventListener('animationend',()=>{
+    if(extraShown)return; extraShown=true;
+    const b=document.createElement('button'); b.className='btn secondary'; b.textContent='One More Thing…'; b.style.marginTop='14px';
+    b.addEventListener('click',()=>toast('No matter what you choose, I’m glad I got to tell you how I feel. You deserve kindness, always. ❤️'));
+    $('#questionScene').append(b);
+  });
+  updateProgress(0);
+})();
+</script>
+</body>
+</html>
